@@ -1,10 +1,8 @@
 package com.example.micha.newandroidapp;
 
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -19,14 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-public class Schedule extends AppCompatActivity {
+public class Map extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -43,18 +37,11 @@ public class Schedule extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
 
-
-
-
-
-
-
-        setContentView(R.layout.activity_schedule);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -69,7 +56,6 @@ public class Schedule extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -87,7 +73,7 @@ public class Schedule extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_schedule, menu);
+        getMenuInflater().inflate(R.menu.menu_map, menu);
         return true;
     }
 
@@ -103,8 +89,13 @@ public class Schedule extends AppCompatActivity {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+//try this? ok. It either didn't work or my code doesn't work
+            //what are you expecting this to do? because i beleve you've set it up wrong.
+            //So when a tab is selected, an image will appear. To test I want to see if a message will appear
+
+
+            return super.onOptionsItemSelected(item);
+        }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -125,6 +116,11 @@ public class Schedule extends AppCompatActivity {
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
+            //it's what this does. Whats a Bundle?
+            // a magical way to send information. What kind of form is it
+            //not a form... strictly for android to send data to itself. Like any kind of data?
+            //strictly those types. Ok. I think this makes sense. Thanks so much.
+            // no problem/ ciao CYA
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -134,10 +130,12 @@ public class Schedule extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
-            ImageView imageview = (ImageView) rootView.findViewById(R.id.section_image);
-            int currentPage = getArguments().getInt(ARG_SECTION_NUMBER);
+            View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+            ImageView imageview = (ImageView) rootView.findViewById(R.id.map_view);
 
+//changes back image
+
+            int currentPage = getArguments().getInt(ARG_SECTION_NUMBER);
             switch (currentPage){
                 case 1:
                     imageview.setImageResource(R.drawable.floor_1_map_hd);
@@ -151,6 +149,7 @@ public class Schedule extends AppCompatActivity {
                 default:
                     imageview.setImageResource(R.drawable.floor_1_map_hd);
             }
+//changes back image
 
 
             return rootView;

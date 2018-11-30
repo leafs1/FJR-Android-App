@@ -1,5 +1,6 @@
 package com.example.micha.newandroidapp;
 
+import android.content.ClipData;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
 import android.os.CountDownTimer;
+import android.content.ClipboardManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +144,11 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "angela.aguiar@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("aguiar", "angela.aguiar@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
+
             }
         });
 
@@ -150,6 +157,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "matthew.akelaitis@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("akelaitis", "matthew.akelaitis@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -158,6 +169,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "leanna.alicandri@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("alicandri", "leanna.alicandri@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -166,6 +181,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "palma.antognetti@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("antognetti", "palma.antognetti@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -174,6 +193,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "gianna.antonacci@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("antonacci", "gianna.antonacci@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -182,6 +205,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "sandra.antoniw@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("antoniw", "sandra.antoniw@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -190,6 +217,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "NaaOdey.Armstrong@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("armstrong", "NaaOdey.Armstrong@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -198,6 +229,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "michael.badali@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("badali", "michael.badali@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -206,6 +241,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "susan.ballerini@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("ballerini", "susan.ballerini@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -214,6 +253,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "phyllis.battersby@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("battersby", "phyllis.battersby@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -222,6 +265,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "andrew.bellissimo@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("bellissimo", "andrew.bellissimo@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -230,6 +277,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "gina.ben-aharon@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("aharon", "gina.ben-aharon@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -238,6 +289,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "leslie.borbas@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("borbas", "leslie.borbas@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -246,6 +301,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "diane.borsk@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("borsk", "diane.borsk@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -254,6 +313,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "kevin.brazel@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("brazel", "kevin.brazel@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -262,6 +325,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "lori.bridgeford@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("bridgeford", "lori.bridgeford@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -270,6 +337,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Diego.Bueti@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Bueti", "Diego.Bueti@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -278,6 +349,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "tania.carducci@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("carducci", "tania.carducci@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -286,6 +361,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "carmela.cocuzzoli@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("cocuzzoli", "carmela.cocuzzoli@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -294,6 +373,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Robert.Comella@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("comella", "Robert.Comella@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -302,6 +385,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Keith.Corkum@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Corkum", "Keith.Corkum@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -310,6 +397,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "kevin.cosgrove@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("cosgrove", "kevin.cosgrove@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -318,6 +409,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Anne.DeCiantis@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("deciantis", "Anne.DeCiantis@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -326,6 +421,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "frank.defina@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("defina", "frank.defina@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -334,6 +433,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "marialuisa.deponte@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("deponte", "marialuisa.deponte@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -342,6 +445,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "shawn.devin@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("devin", "shawn.devin@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -350,6 +457,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "rosa.diprospero@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("diprospero", "rosa.diprospero@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -358,6 +469,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "peter.domengoni@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("domengoni", "peter.domengoni@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -366,6 +481,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "nelli.domingues@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("dominguesi", "nelli.domingues@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -374,6 +493,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "alana.driscoll@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("driscoll", "alana.driscoll@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -382,6 +505,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "linda.deciantisElia@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("elia", "linda.deciantisElia@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -390,6 +517,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Mirella.Evangelista@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("evangelista", "Mirella.Evangelista@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -398,6 +529,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Ania.Fairfield@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("fairfield", "Ania.Fairfield@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -406,6 +541,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Genevieve.Febbraro@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("febbraro", "Genevieve.Febbraro@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -414,6 +553,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "sandra.fiacco@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("fiacco", "sandra.fiacco@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -422,6 +565,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Daniel.Fiorella@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("fiorella", "Daniel.Fiorella@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -430,6 +577,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "urszula.foltarz-jalowska@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("jalowska", "urszula.foltarz-jalowska@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -438,6 +589,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Jennifer.Fortino@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("fortino", "Jennifer.Fortino@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -446,6 +601,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Angela.Gambatesa@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("gambatesa", "Angela.Gambatesa@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -454,6 +613,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Anton.Geley@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("geley", "Anton.Geley@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -462,6 +625,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "anna.grieco@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("grieco", "anna.grieco@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -470,6 +637,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "aneta.gronowski@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("gronowski", "aneta.gronowski@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -478,6 +649,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "brendan.heffernan@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("heffernan", "brendan.heffernan@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -486,6 +661,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "mary.hurley@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("hurley", "mary.hurley@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -494,6 +673,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "justin.iozzo@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("iozzoj", "justin.iozzo@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -502,6 +685,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Mark.Iozzo@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("iozzom", "Mark.Iozzo@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -510,6 +697,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "angela.jargstorf@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("jargstorf", "angela.jargstorf@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -518,6 +709,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Theresa.Johnson@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("johnson", "Theresa.Johnson@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -526,6 +721,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "natalie.junyk@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("junyk", "natalie.junyk@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -534,6 +733,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Daria.Karanikolov@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("karanikolov", "Daria.Karanikolov@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -542,6 +745,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "sophie.karman@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("karman", "sophie.karman@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -550,6 +757,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "waldemar.kruszynski@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("kruszynski", "waldemar.kruszynski@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -558,6 +769,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "karl.kuczynski@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("kuczynski", "karl.kuczynski@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -566,6 +781,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "caroline.laplante@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("laplante", "caroline.laplante@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -574,6 +793,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "concettal.lavorato@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("lavorato", "concettal.lavorato@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -582,6 +805,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Andrew.Lee@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("lee", "Andrew.Lee@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -590,6 +817,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Nicole.Leone@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("leone", "Nicole.Leone@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -598,6 +829,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "susan.longo-santia@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("longo", "susan.longo-santia@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -606,6 +841,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "lisa.loughlin@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("loughlin", "lisa.loughlin@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -614,6 +853,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "michael.macdonald@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("macdonald", "michael.macdonald@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -622,6 +865,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "jennifer.mahon@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("mahon", "jennifer.mahon@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -630,6 +877,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Salvatore.Maone@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("maone", "Salvatore.Maone@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -638,6 +889,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Roxolana.Marmash@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("marmash", "Roxolana.Marmash@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -646,6 +901,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Luigi.Mazzucco@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("mazzucco", "Luigi.Mazzucco@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -654,6 +913,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Gregory.McGrade@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("mcgrade", "Gregory.McGrade@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -662,6 +925,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "anna.murphy03@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("murphy", "anna.murphy03@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -670,6 +937,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "philip.myszkal@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("myszkal", "philip.myszkal@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -678,6 +949,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "jeanette.neal@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("neal", "jeanette.neal@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -686,6 +961,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "kristine.neary@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("neary", "kristine.neary@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -694,6 +973,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "evelyn.paris@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("paris", "evelyn.paris@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -702,6 +985,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "alexis.Percival@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("percival", "alexis.Percival@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -710,6 +997,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Matteo.Perri@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("perri", "Matteo.Perri@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -718,6 +1009,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "David.Plateo@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("plateo", "David.Plateo@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -726,6 +1021,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "gabriele.piccolo@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("piccolo", "gabriele.piccolo@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -734,6 +1033,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "tammy.ralph@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("ralph", "tammy.ralph@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -742,6 +1045,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "catherine.ratusny@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("ratusny", "catherine.ratusny@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -750,6 +1057,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "maria.rebelo-dasilva@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("dasilva", "maria.rebelo-dasilva@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -758,6 +1069,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Caitlin.Reilly@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("reilly", "Caitlin.Reilly@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -766,6 +1081,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "roger.richard@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("richard", "roger.richard@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -774,6 +1093,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "kristina.romano@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("romano", "kristina.romano@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -782,6 +1105,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "john.rooney@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("rooney", "john.rooney@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -790,6 +1117,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "brendan.sherrard@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("sherrard", "brendan.sherrard@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -798,6 +1129,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Sam.Sisco@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("sisco", "Sam.Sisco@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -806,6 +1141,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "alina.slawek@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("slawek", "alina.slawek@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -814,6 +1153,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Robert.Spadafora@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("spadafora", "Robert.Spadafora@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -822,6 +1165,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "nicole.sparks@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("sparks", "nicole.sparks@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -830,6 +1177,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "elena.spinelli@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("spinelli", "elena.spinelli@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -838,6 +1189,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "warren.stromain@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("stromain", "warren.stromain@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -846,6 +1201,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Stephen.Strong@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("strong", "Stephen.Strong@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -854,6 +1213,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "karyn.teixeira@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("teixeira", "karyn.teixeira@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -862,6 +1225,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "rosa.termine@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("termine", "rosa.termine@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -870,6 +1237,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Huy.tran@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("tran", "Huy.tran@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -878,6 +1249,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "lisa.weiler@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("weiler", "lisa.weiler@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -886,6 +1261,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "kenneth.wood@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("wood", "kenneth.wood@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -894,6 +1273,10 @@ public class Contacts_page extends AppCompatActivity {
 
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "hanul.yi@tcdsb.org", Toast.LENGTH_LONG).show();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("yi", "hanul.yi@tcdsb.org");
+                clipboard.setPrimaryClip(clip);
             }
         });
 

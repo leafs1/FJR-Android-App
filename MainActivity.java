@@ -38,10 +38,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         arrayList.add(new DataModel("Bus Times", R.drawable.bus_52, "#4BAA50"));
         arrayList.add(new DataModel("Contact", R.drawable.envelope_52, "#F94336"));
         arrayList.add(new DataModel("Map", R.drawable.map_52, "#0A9B88"));
-        arrayList.add(new DataModel("MyBlueprint", R.drawable.blueprint_52, "#0A9B88"));
-        arrayList.add(new DataModel("Twitter", R.drawable.twitter_clear_bird_52, "#0A9B88"));
-        arrayList.add(new DataModel("Website", R.drawable.battle, "#0A9B88"));
-        arrayList.add(new DataModel("Map", R.drawable.battle, "#0A9B88"));
+        arrayList.add(new DataModel("MyBlueprint", R.drawable.blueprint_52, "#09A9FF"));
+        arrayList.add(new DataModel("Twitter", R.drawable.twitter_clear_bird_52, "#3E51B1"));
+        arrayList.add(new DataModel("Website", R.drawable.globe, "#4BAA50"));
+        arrayList.add(new DataModel("", R.drawable.white, "#ffffff"));
+
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, arrayList, this);
         recyclerView.setAdapter(adapter);
@@ -90,6 +91,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         if (item.text == "Schedule") {
 
             Intent intentLoadNewActivity = new Intent(MainActivity.this, Schedule.class);
+            startActivity(intentLoadNewActivity);
+        } else {
+
+        }
+
+        if (item.text == "Map") {
+
+            Intent intentLoadNewActivity = new Intent(MainActivity.this, Map.class);
             startActivity(intentLoadNewActivity);
         } else {
 
