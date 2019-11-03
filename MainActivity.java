@@ -104,6 +104,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         }
 
+        if (item.text == "Bus Times") {
+
+            Intent intentLoadNewActivity = new Intent(MainActivity.this, activity_bus_times.class);
+            startActivity(intentLoadNewActivity);
+        } else {
+
+        }
+
         if (item.text == "Anonymous Alerts"){
             Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.anonymousalerts.com/tcdsb/default.aspx"));
             startActivity(browserIntent);

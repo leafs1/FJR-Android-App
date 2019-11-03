@@ -72,14 +72,7 @@ public class Schedule extends AppCompatActivity {
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
     }
 
@@ -140,16 +133,16 @@ public class Schedule extends AppCompatActivity {
 
             switch (currentPage){
                 case 1:
-                    imageview.setImageResource(R.drawable.floor_1_map_hd);
+                    imageview.setImageResource(R.drawable.first_tab_done);
                     break;
                 case 2:
-                    imageview.setImageResource(R.drawable.floor_2_map_hd);
+                    imageview.setImageResource(R.drawable.second_tab_done);
                     break;
                 case 3:
-                    imageview.setImageResource(R.drawable.floor_3_map_hd);
+                    imageview.setImageResource(R.drawable.third_tab_done);
                     break;
                 default:
-                    imageview.setImageResource(R.drawable.floor_1_map_hd);
+                    imageview.setImageResource(R.drawable.first_tab_done);
             }
 
 
