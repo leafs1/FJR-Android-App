@@ -31,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class activity_bus_times extends AppCompatActivity {
@@ -46,6 +47,7 @@ public class activity_bus_times extends AppCompatActivity {
         parser.execute();
 
 
+
     }
 
 
@@ -53,9 +55,8 @@ public class activity_bus_times extends AppCompatActivity {
 
     class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
 
-        String colonelSamuelUrl = "http://http://www.catchttc.com/44/3690_ar";
-        Document document;
-
+        // Colonel website
+        String colonelSamuelUrl = "http://www.catchttc.com/44/3690_ar";
 
         @Override
         protected void onPreExecute() {
@@ -66,10 +67,19 @@ public class activity_bus_times extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             //Connect to the website
             try {
+                //Get html
                 Document colonelSamuel = Jsoup.connect(colonelSamuelUrl).get();
-                String title = document.title();
+                String colonelRawText = colonelSamuel.text();
 
-                System.out.println(title);
+                // Get text without most extra stuff
+                String delims = "[qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM, () | <]+";
+                String[] colonelSplit = colonelRawText.split(delims);
+
+                // mins till bus arrives
+                String mins = colonelSplit[5];
+
+                System.out.println(mins);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
