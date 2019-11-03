@@ -1,11 +1,13 @@
 package com.example.micha.newandroidapp;
 
 import android.app.ProgressDialog;
+import android.net.http.SslCertificate;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -38,28 +40,61 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class activity_bus_times extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_times);
 
-
         System.out.println("Starting Parser");
+
         AsyncTaskRunner parser = new AsyncTaskRunner();
-        parser.execute();
+        // Wait for Async task to finish
+        try {
+            parser.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // Now have mins in parser.mins
+        System.out.println(parser.mins);
+
+
+
+        // Adapter stuff
+        RecyclerView busRV = findViewById(R.id.busRV);
+
+        BusTimesAdapter busAdapter = new BusTimesAdapter(parser.mins);
+        busRV.setAdapter(busAdapter);
+        busRV.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+
+
+
+
 
 
 
     }
+
 }
+
 
 class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
 
     // Colonel website
     String colonelSamuelUrl = "http://www.catchttc.com/44/3690_ar";
+
+    public String mins;
 
     @Override
     protected void onPreExecute() {
@@ -79,7 +114,7 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
             String[] colonelSplit = colonelRawText.split(delims);
 
             // mins till bus arrives
-            String mins = colonelSplit[5];
+            mins = colonelSplit[5];
 
             System.out.println(mins);
 
@@ -92,7 +127,12 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+        this.cancel(true);
+
+
     }
+
+
 
 }
 
