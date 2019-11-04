@@ -1,6 +1,9 @@
 package com.example.micha.newandroidapp;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BusTimesAdapter extends
@@ -18,6 +22,7 @@ public class BusTimesAdapter extends
         // for any view that will be set as you render a row
         public TextView busCardsText;
         public CardView busCards;
+        public ImageView busCardsImage;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -28,13 +33,16 @@ public class BusTimesAdapter extends
 
             busCardsText = itemView.findViewById(R.id.bus_cards_text);
             busCards = itemView.findViewById(R.id.bus_cards);
+            busCardsImage = itemView.findViewById(R.id.bus_card_image);
         }
     }
 
     // Bus Times Adapter constructor
     private String mTime;
-    public BusTimesAdapter(String time) {
+    private int mBusStop;
+    public BusTimesAdapter(String time, int busStop) {
         mTime = time;
+        mBusStop = busStop;
     }
 
 
@@ -62,7 +70,9 @@ public class BusTimesAdapter extends
         TextView textView = viewHolder.busCardsText;
         textView.setText(mTime);
         CardView cardview = viewHolder.busCards;
-        cardview.setCardBackgroundColor(100);
+        cardview.setCardBackgroundColor(200);
+        ImageView imageView = viewHolder.busCardsImage;
+        imageView.setImageResource(mBusStop);
     }
     @Override
     public int getItemCount() {

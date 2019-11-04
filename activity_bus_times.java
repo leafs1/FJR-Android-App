@@ -37,6 +37,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -71,7 +72,7 @@ public class activity_bus_times extends AppCompatActivity {
         // Adapter stuff
         RecyclerView busRV = findViewById(R.id.busRV);
 
-        BusTimesAdapter busAdapter = new BusTimesAdapter(parser.mins);
+        BusTimesAdapter busAdapter = new BusTimesAdapter(parser.mins, R.drawable.bus_south_stop);
         busRV.setAdapter(busAdapter);
         busRV.setLayoutManager(new LinearLayoutManager(this));
 
@@ -90,11 +91,24 @@ public class activity_bus_times extends AppCompatActivity {
 
 
 class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
-
+    
     // Colonel website
     String colonelSamuelUrl = "http://www.catchttc.com/44/3690_ar";
+    String colonelSamuelUrl944 = "http://www.catchttc.com/944/3690_ar";
+
+    String timmiesUrl = "http://www.catchttc.com/44/12121";
+    String timmiesURL944 = "http://www.catchttc.com/944/12121";
+
+    String lakeshoreWest = "http://www.catchttc.com/501/5182";
+
+    String lakeshoreEast = "http://www.catchttc.com/501/5181";
+
+    public ArrayList<String> busURLs;
 
     public String mins;
+    public ArrayList<String> busTimes;
+
+
 
     @Override
     protected void onPreExecute() {
@@ -103,10 +117,42 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
 
     @Override
     protected Void doInBackground(Void... voids) {
+        System.out.println("do in background time");
+        busURLs.add(colonelSamuelUrl);
+        busURLs.add(colonelSamuelUrl944);
+        busURLs.add(timmiesUrl);
+        busURLs.add(timmiesURL944);
+        busURLs.add(lakeshoreWest);
+        busURLs.add(lakeshoreEast);
+
         //Connect to the website
+        System.out.println("Starting for");
+        for (int i = 0; i < busURLs.toArray().length; i++) {
+            System.out.println("Starting try");
+            try{
+            System.out.println("in try");
+            Document website = Jsoup.connect(busURLs.get(i)).get();
+            String rawText = website.text();
+
+            // Get text without most extra stuff
+            String delims = "[qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM, () | <]+";
+            String[] colonelSplit = rawText.split(delims);
+
+            // mins till bus arrives
+            mins = colonelSplit[5];
+            busTimes.add(mins);
+            System.out.println(mins);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        }
+
+        //Get html
+        Document colonelSamuel = null;
         try {
-            //Get html
-            Document colonelSamuel = Jsoup.connect(colonelSamuelUrl).get();
+            colonelSamuel = Jsoup.connect(colonelSamuelUrl).get();
             String colonelRawText = colonelSamuel.text();
 
             // Get text without most extra stuff
@@ -117,10 +163,11 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
             mins = colonelSplit[5];
 
             System.out.println(mins);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
         return null;
     }
 
