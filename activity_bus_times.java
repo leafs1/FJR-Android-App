@@ -25,6 +25,9 @@ import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -59,20 +62,22 @@ public class activity_bus_times extends AppCompatActivity {
         // Wait for Async task to finish
         try {
             parser.execute().get();
+
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         // Now have mins in parser.mins
-        System.out.println(parser.mins);
+//        System.out.println(parser.mins);
 
-
+        System.out.println("BUS TIMES COMPLETE");
+        System.out.println(parser.busTimes);
 
         // Adapter stuff
         RecyclerView busRV = findViewById(R.id.busRV);
 
-        BusTimesAdapter busAdapter = new BusTimesAdapter(parser.mins, R.drawable.bus_south_stop);
+        BusTimesAdapter busAdapter = new BusTimesAdapter(parser.busTimes);
         busRV.setAdapter(busAdapter);
         busRV.setLayoutManager(new LinearLayoutManager(this));
 
@@ -91,7 +96,7 @@ public class activity_bus_times extends AppCompatActivity {
 
 
 class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
-    
+
     // Colonel website
     String colonelSamuelUrl = "http://www.catchttc.com/44/3690_ar";
     String colonelSamuelUrl944 = "http://www.catchttc.com/944/3690_ar";
@@ -99,20 +104,20 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
     String timmiesUrl = "http://www.catchttc.com/44/12121";
     String timmiesURL944 = "http://www.catchttc.com/944/12121";
 
-    String lakeshoreWest = "http://www.catchttc.com/501/5182";
+    String lakeshoreWest = "http://www.catchttc.com/501/5181";
 
-    String lakeshoreEast = "http://www.catchttc.com/501/5181";
+    String lakeshoreEast = "http://www.catchttc.com/501/5182";
 
-    public ArrayList<String> busURLs;
+    public ArrayList<String> busURLs = new ArrayList<>();
 
-    public String mins;
-    public ArrayList<String> busTimes;
+    public ArrayList<ArrayList<String>> busTimes = new ArrayList<>();
 
 
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+
     }
 
     @Override
@@ -130,18 +135,76 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
         for (int i = 0; i < busURLs.toArray().length; i++) {
             System.out.println("Starting try");
             try{
-            System.out.println("in try");
-            Document website = Jsoup.connect(busURLs.get(i)).get();
-            String rawText = website.text();
+                System.out.println("in try");
+                System.out.println(busURLs);
+                System.out.println(busURLs.get(0));
+                Document website = Jsoup.connect(busURLs.get(i)).get();
+                System.out.println("HTML");
+                System.out.println(website);
+                String rawText = website.text();
+                System.out.println("RAW TEXT");
+                System.out.println(rawText);
 
-            // Get text without most extra stuff
-            String delims = "[qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM, () | <]+";
-            String[] colonelSplit = rawText.split(delims);
+                ArrayList<Integer> pattern2Start = new ArrayList();
+                ArrayList<Integer> pattern2End = new ArrayList();
 
-            // mins till bus arrives
-            mins = colonelSplit[5];
-            busTimes.add(mins);
-            System.out.println(mins);
+
+
+                if (i == 2) {
+                    //REGEX
+                    Pattern p2 = Pattern.compile("( [0-9][0-9]| [0-9]) min—North - 44");
+                    Matcher m2 = p2.matcher(rawText);
+                    System.out.println("REGEX");
+                    while (m2.find()){
+                        pattern2Start.add(m2.start());
+                        pattern2End.add(m2.end()+1);
+                    }
+                } else if (i == 3) {
+                    //REGEX
+                    Pattern p2 = Pattern.compile("( [0-9][0-9]| [0-9]) min—North - 944");
+                    Matcher m2 = p2.matcher(rawText);
+                    System.out.println("REGEX");
+                    while (m2.find()){
+                        pattern2Start.add(m2.start());
+                        pattern2End.add(m2.end());
+                    }
+                } else {
+                    //REGEX
+                    Pattern p2 = Pattern.compile("( [0-9][0-9]| [0-9]) min");
+                    Matcher m2 = p2.matcher(rawText);
+                    System.out.println("REGEX");
+                    while (m2.find()){
+                        pattern2Start.add(m2.start());
+                        pattern2End.add(m2.end());
+                    }
+                }
+
+
+
+
+                // List containing bus times.
+                ArrayList mins = new ArrayList();
+
+                System.out.println("PATTERN 2 LEGNTH");
+                System.out.println(pattern2Start);
+                System.out.println(pattern2End);
+
+                for (int j = 0; j < pattern2Start.toArray().length; j ++) {
+                    if (pattern2End.get(j).intValue() - pattern2Start.get(j).intValue() == 6 || pattern2End.get(j).intValue() - pattern2Start.get(j).intValue() == 17 || pattern2End.get(j).intValue() - pattern2Start.get(j).intValue() == 18) {
+                        mins.add(Character.toString(rawText.charAt(pattern2Start.get(j).intValue()+1)));
+                    } else {
+                        char char1 = rawText.charAt(pattern2Start.get(j).intValue()+1);
+                        char char2 = rawText.charAt(pattern2Start.get(j).intValue()+2);
+                        String combined = new StringBuilder().append(char1).append(char2).toString();
+                        mins.add(combined);
+                    }
+                }
+
+
+                busTimes.add(mins);
+                System.out.println("mins finallll");
+                System.out.println(mins);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -149,23 +212,6 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
 
         }
 
-        //Get html
-        Document colonelSamuel = null;
-        try {
-            colonelSamuel = Jsoup.connect(colonelSamuelUrl).get();
-            String colonelRawText = colonelSamuel.text();
-
-            // Get text without most extra stuff
-            String delims = "[qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM, () | <]+";
-            String[] colonelSplit = colonelRawText.split(delims);
-
-            // mins till bus arrives
-            mins = colonelSplit[5];
-
-            System.out.println(mins);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
         return null;

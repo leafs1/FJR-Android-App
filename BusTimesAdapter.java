@@ -14,8 +14,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class BusTimesAdapter extends
         RecyclerView.Adapter<BusTimesAdapter.ViewHolder> {
+
+    public int firstIndexFinalStep = -1;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
@@ -23,6 +27,7 @@ public class BusTimesAdapter extends
         public TextView busCardsText;
         public CardView busCards;
         public ImageView busCardsImage;
+        public TextView busCardsTitle;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -34,15 +39,14 @@ public class BusTimesAdapter extends
             busCardsText = itemView.findViewById(R.id.bus_cards_text);
             busCards = itemView.findViewById(R.id.bus_cards);
             busCardsImage = itemView.findViewById(R.id.bus_card_image);
+            busCardsTitle = itemView.findViewById(R.id.bus_card_title);
         }
     }
 
     // Bus Times Adapter constructor
-    private String mTime;
-    private int mBusStop;
-    public BusTimesAdapter(String time, int busStop) {
+    private ArrayList<ArrayList<String>> mTime;
+    public BusTimesAdapter(ArrayList<ArrayList<String>> time) {
         mTime = time;
-        mBusStop = busStop;
     }
 
 
@@ -63,21 +67,129 @@ public class BusTimesAdapter extends
         return viewHolder;
     }
 
+
+
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        firstIndexFinalStep += 1;
+
         // Set item views based on your views and data model
         TextView textView = viewHolder.busCardsText;
-        textView.setText(mTime);
+
+        System.out.println(mTime);
+
+        String displayString = "";
+        String displayString1 = "";
+        String displayString2 = "";
+
+
+
+
+
+        if (firstIndexFinalStep == 0) {
+            for (int j = 0; j < mTime.get(this.firstIndexFinalStep).toArray().length; j++) {
+                String value = mTime.get(this.firstIndexFinalStep).get(j);
+                displayString1 = displayString1 + value + ",";
+            }
+            displayString1 += "\n";
+
+            for (int j = 0; j < mTime.get(this.firstIndexFinalStep+1).toArray().length; j++) {
+                String value = mTime.get(this.firstIndexFinalStep+1).get(j);
+                displayString2 = displayString2 + value + ",";
+            }
+
+            if (displayString1 == "") {
+                displayString1 = "No buses scheduled";
+            }
+            if (displayString2 == "") {
+                displayString2 = "No buses scheduled";
+            }
+
+            displayString = displayString1 + displayString2;
+
+            textView.setText(displayString);
+
+
+
+
+        } else if (firstIndexFinalStep == 1) {
+            for (int j = 0; j < mTime.get(this.firstIndexFinalStep+1).toArray().length; j++) {
+                String value = mTime.get(this.firstIndexFinalStep+1).get(j);
+                displayString1 = displayString1 + value + ",";
+            }
+            displayString1 += "\n";
+
+            for (int j = 0; j < mTime.get(this.firstIndexFinalStep+2).toArray().length; j++) {
+                String value = mTime.get(this.firstIndexFinalStep+2).get(j);
+                displayString2 = displayString2 + value + ",";
+            }
+
+            if (displayString1 == "") {
+                displayString1 = "No buses scheduled";
+            }
+            if (displayString2 == "") {
+                displayString2 = "No buses scheduled";
+            }
+
+            displayString = displayString1 + displayString2;
+
+            textView.setText(displayString);
+
+
+
+
+
+        } else {
+            for (int j = 0; j < mTime.get(this.firstIndexFinalStep+2).toArray().length; j++) {
+                String value = mTime.get(this.firstIndexFinalStep+2).get(j);
+                displayString = displayString + value + ",";
+                textView.setText(displayString);
+            }
+
+            if (displayString == "") {
+                textView.setText("No buses scheduled");
+            }
+        }
+
+
+
+
+        System.out.println("DISPLAY STRING");
+        System.out.println(displayString);
+
+
         CardView cardview = viewHolder.busCards;
         cardview.setCardBackgroundColor(200);
         ImageView imageView = viewHolder.busCardsImage;
-        imageView.setImageResource(mBusStop);
+        imageView.setImageResource(cardImage().get(firstIndexFinalStep));
+        TextView title = viewHolder.busCardsTitle;
+        title.setText(busStopTitles().get(firstIndexFinalStep));
     }
     @Override
     public int getItemCount() {
-        return 1;
+        return 4;
     }
+
+    public ArrayList<String> busStopTitles() {
+        ArrayList<String> busStopTitles = new ArrayList<>();
+        busStopTitles.add("South Stop");
+        busStopTitles.add("Tim Hortons");
+        busStopTitles.add("Lakeshore East");
+        busStopTitles.add("Lakeshore West");
+        return busStopTitles;
+    }
+
+    public ArrayList<Integer> cardImage() {
+        ArrayList<Integer> cardImages = new ArrayList<>();
+        cardImages.add(R.drawable.bus_south_stop);
+        cardImages.add(R.drawable.bus_tim_hortons);
+        cardImages.add(R.drawable.bus_lakeshore_moving_east);
+        cardImages.add(R.drawable.bus_lakeshore_moving_west);
+
+        return cardImages;
+    }
+
 
 
 }
