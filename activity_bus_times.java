@@ -61,6 +61,8 @@ public class activity_bus_times extends AppCompatActivity {
         AsyncTaskRunner parser = new AsyncTaskRunner();
         // Wait for Async task to finish
         try {
+            //findViewById(R.id.loadingPanel).setVisibility(View.GONE); or .VISIBLE
+
             parser.execute().get();
 
         } catch (ExecutionException e) {
@@ -167,6 +169,24 @@ class AsyncTaskRunner extends AsyncTask<Void, Void, Void>{
                     while (m2.find()){
                         pattern2Start.add(m2.start());
                         pattern2End.add(m2.end());
+                    }
+                } else if (i == 4) {
+                    //REGEX
+                    Pattern p2 = Pattern.compile("( [0-9][0-9]| [0-9]) min—West - 501");
+                    Matcher m2 = p2.matcher(rawText);
+                    System.out.println("REGEX");
+                    while (m2.find()){
+                        pattern2Start.add(m2.start());
+                        pattern2End.add(m2.end()+1);
+                    }
+                } else if (i == 5) {
+                    //REGEX
+                    Pattern p2 = Pattern.compile("( [0-9][0-9]| [0-9]) min—East - 501");
+                    Matcher m2 = p2.matcher(rawText);
+                    System.out.println("REGEX");
+                    while (m2.find()){
+                        pattern2Start.add(m2.start());
+                        pattern2End.add(m2.end()+1);
                     }
                 } else {
                     //REGEX
