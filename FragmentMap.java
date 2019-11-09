@@ -48,7 +48,7 @@ public class FragmentMap extends Fragment{
         //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new FragmentMap.SectionsPagerAdapter(getFragmentManager());
+        mSectionsPagerAdapter = new FragmentMap.SectionsPagerAdapter(getChildFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) getView().findViewById(R.id.container2);

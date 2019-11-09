@@ -1,5 +1,6 @@
 package com.example.micha.newandroidapp;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabItem;
@@ -37,9 +38,8 @@ public class FragmentSchedule extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        help = getView().findViewById(R.id.container);
 
-        mSectionsPagerAdapter = new FragmentSchedule.SectionsPagerAdapter(getFragmentManager());
+        mSectionsPagerAdapter = new FragmentSchedule.SectionsPagerAdapter(getChildFragmentManager());
 
 
 
@@ -55,11 +55,13 @@ public class FragmentSchedule extends Fragment {
         TabLayout tabLayout = (TabLayout) getView().getRootView().findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        TabItem tabItem = getView().findViewById(R.id.tabItem);
         ImageView imageview = (ImageView) getView().findViewById(R.id.section_image);
         //imageview.setImageResource(R.drawable.first_tab_done);
+
+
 
 
 
@@ -89,6 +91,23 @@ public class FragmentSchedule extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void onPause() {
+        super.onPause();  // Always call the superclass method first
+        // Do what you want.
+        System.out.println("on pause time");
+
+
+//        Fragment fragment = (getFragmentManager().findFragmentById(R.id.));
+
+
+
+        //      getFragmentManager().findFragmentById(R.id.id_for_your_map_fragment).;
+
+    //    getFragmentManager().beginTransaction().remove().commitAllowingStateLoss();
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -110,7 +129,11 @@ public class FragmentSchedule extends Fragment {
         public static FragmentSchedule.PlaceholderFragment newInstance(int sectionNumber) {
             FragmentSchedule.PlaceholderFragment fragment = new FragmentSchedule.PlaceholderFragment();
             Bundle args = new Bundle();
+            System.out.println("SECTION NUMBER ");
+            System.out.println(sectionNumber);
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            System.out.println("ARGS HELPP");
+            System.out.println(args.toString());
             fragment.setArguments(args);
             return fragment;
         }
@@ -121,10 +144,14 @@ public class FragmentSchedule extends Fragment {
             View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
             ImageView imageview = (ImageView) rootView.findViewById(R.id.section_image);
             int currentPage = getArguments().getInt(ARG_SECTION_NUMBER);
+            System.out.println("Current Page Here");
+            System.out.println(currentPage);
+
+
 
             switch (currentPage) {
                 case 1:
-                    imageview.setImageResource(R.drawable.first_tab_done);
+                    imageview.setImageResource(R.drawable.first_tab_done_final);
                     break;
                 case 2:
                     imageview.setImageResource(R.drawable.second_tab_done);
@@ -155,7 +182,9 @@ public class FragmentSchedule extends Fragment {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return FragmentSchedule.PlaceholderFragment.newInstance(position + 1);
+            System.out.println(" POSITIONNN");
+            System.out.println(position);
+            return FragmentSchedule.PlaceholderFragment.newInstance(position+1);
         }
 
         @Override

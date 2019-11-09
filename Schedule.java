@@ -52,8 +52,6 @@ public class Schedule extends AppCompatActivity {
 
 
 
-
-
         setContentView(R.layout.activity_schedule);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

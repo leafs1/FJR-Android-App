@@ -1,11 +1,15 @@
 package com.example.micha.newandroidapp;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.SpannableString;
+import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -27,12 +31,16 @@ public class MainPage extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "One of the creator's emails has been copied to your clipboard. Please send an email if you notice any bugs.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Michael", "michael.adragna1@gmail.com");
+                clipboard.setPrimaryClip(clip);
             }
         });
 
@@ -43,6 +51,13 @@ public class MainPage extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
+        Menu menu = navigationView.getMenu();
+
+        MenuItem tools= menu.findItem(R.id.tools);
+        SpannableString s = new SpannableString(tools.getTitle());
+        s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
+        tools.setTitle(s);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -59,8 +74,9 @@ public class MainPage extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_page, menu);
-        return true;
+        //getMenuInflater().inflate(R.menu.main_page, menu);
+        // Change return to true if want to use
+        return false;
     }
 
     @Override
@@ -90,6 +106,7 @@ public class MainPage extends AppCompatActivity
         if (id == R.id.nav_announcements) {
 
         } else if (id == R.id.nav_schedule) {
+            // Pass in fragment?
             fragment = new FragmentSchedule();
             toolbar.setTitle("Schedule");
         } else if (id == R.id.nav_bus_times) {
@@ -105,18 +122,22 @@ public class MainPage extends AppCompatActivity
             bundle.putString("url", "https://www.anonymousalerts.com/tcdsb/default.aspx");
             fragment = new FragmentWebView();
             fragment.setArguments(bundle);
+            toolbar.setTitle("Anonymous Alerts");
         } else if (id == R.id.nav_website) {
             bundle.putString("url", "https://www.tcdsb.org/schools/fatherjohnredmond/Pages/default.aspx");
             fragment = new FragmentWebView();
             fragment.setArguments(bundle);
+            toolbar.setTitle("FJR Website");
         } else if (id == R.id.nav_twitter) {
             bundle.putString("url", "https://twitter.com/FJRCSS?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor");
             fragment = new FragmentWebView();
             fragment.setArguments(bundle);
+            toolbar.setTitle("FJR Twitter");
         } else if (id == R.id.nav_myblueprint) {
             bundle.putString("url", "https://app.myblueprint.ca/?sdid=TCDSB");
             fragment = new FragmentWebView();
             fragment.setArguments(bundle);
+            toolbar.setTitle("MyBlueprint");
         }
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
