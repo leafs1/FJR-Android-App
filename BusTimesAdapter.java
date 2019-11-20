@@ -2,24 +2,21 @@ package com.example.micha.newandroidapp;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.fjrapp.R;
 
 import java.util.ArrayList;
 
@@ -244,13 +241,19 @@ public class BusTimesAdapter extends
                 }
             }
 
-            if (displayString == "") {
-                textView.setText("No buses scheduled");
+            System.out.println("DISPLAY STRING FOR 501");
+            System.out.println(displayString);
+            System.out.println(mTime);
+            System.out.println(mTime.get(this.firstIndexFinalStep+2).toArray().length);
+
+            if (displayString == "" || displayString == null) {
+                displayString = "No buses scheduled";
             }
 
             if (displayString != "No buses scheduled") {
                 displayString += " mins";
             }
+
 
             textView.setText(displayString);
 

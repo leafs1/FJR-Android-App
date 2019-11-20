@@ -1,22 +1,17 @@
 package com.example.micha.newandroidapp;
 
-import android.os.AsyncTask;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import com.fjrapp.R;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class fragment_bus_times extends Fragment {
 
@@ -53,6 +48,10 @@ public class fragment_bus_times extends Fragment {
         }
         // Now have mins in parser.mins
 //        System.out.println(parser.mins);
+
+        Activity parentActivity = this.getActivity();
+        parentActivity.findViewById(R.id.loading_icon).setVisibility(View.GONE);
+
 
         System.out.println("BUS TIMES COMPLETE");
         System.out.println(parser.busTimes);

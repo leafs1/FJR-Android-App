@@ -2,24 +2,24 @@ package com.example.micha.newandroidapp;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
+import com.fjrapp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebViewFragment;
 
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,16 +30,19 @@ public class MainPage extends AppCompatActivity
         setContentView(R.layout.activity_main_page);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        MainPage.this.setTitle("Announcements");
+
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "One of the creator's emails has been copied to your clipboard. Please send an email if you notice any bugs.", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "The creators' joined email has been copied to your clipboard. Please send an email if you notice any bugs.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Michael", "michael.adragna1@gmail.com");
+                ClipData clip = ClipData.newPlainText("FJR App Team", "fjrappteam@gmail.com");
                 clipboard.setPrimaryClip(clip);
             }
         });
@@ -59,14 +62,32 @@ public class MainPage extends AppCompatActivity
         s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
         tools.setTitle(s);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        // Setup starting fragment
+        Fragment fragment = new AnnouncementsFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
+
+        findViewById(R.id.loading_icon).setVisibility(View.GONE);
+
+
+
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        drawer.findViewById(R.id.loading_icon).setVisibility(View.GONE);
+
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+            findViewById(R.id.loading_icon).setVisibility(View.GONE);
         } else {
+            findViewById(R.id.loading_icon).setVisibility(View.GONE);
             super.onBackPressed();
         }
     }
@@ -74,9 +95,9 @@ public class MainPage extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main_page, menu);
+        getMenuInflater().inflate(R.menu.main_page, menu);
         // Change return to true if want to use
-        return false;
+        return true;
     }
 
     @Override
@@ -87,8 +108,17 @@ public class MainPage extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.privacy_policy) {
+            Fragment fragment = null;
+            fragment = new PrivacyPolicy();
+            toolbar.setTitle("Privacy Policy");
+
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
         }
 
         return super.onOptionsItemSelected(item);
@@ -104,17 +134,19 @@ public class MainPage extends AppCompatActivity
         Bundle bundle = new Bundle();
 
         if (id == R.id.nav_announcements) {
-
+            fragment = new AnnouncementsFragment();
+            toolbar.setTitle("Announcements");
         } else if (id == R.id.nav_schedule) {
             // Pass in fragment?
             fragment = new FragmentSchedule();
             toolbar.setTitle("Schedule");
         } else if (id == R.id.nav_bus_times) {
+            this.findViewById(R.id.loading_icon).setVisibility(View.VISIBLE);
             fragment = new fragment_bus_times();
             toolbar.setTitle("Bus Times");
         } else if (id == R.id.nav_contact) {
-            Intent intentLoadNewActivity = new Intent(MainPage.this, Contacts_page.class);
-            startActivity(intentLoadNewActivity);
+            fragment = new FragmentContacts();
+            toolbar.setTitle("Contacts");
         } else if (id == R.id.nav_map) {
             fragment = new FragmentMap();
             toolbar.setTitle("Map");
@@ -133,11 +165,11 @@ public class MainPage extends AppCompatActivity
             fragment = new FragmentWebView();
             fragment.setArguments(bundle);
             toolbar.setTitle("FJR Twitter");
-        } else if (id == R.id.nav_myblueprint) {
-            bundle.putString("url", "https://app.myblueprint.ca/?sdid=TCDSB");
+        } else if (id == R.id.nav_instagram) {
+            bundle.putString("url", "https://www.instagram.com/fjrstudentcouncil/?hl=en%22");
             fragment = new FragmentWebView();
             fragment.setArguments(bundle);
-            toolbar.setTitle("MyBlueprint");
+            toolbar.setTitle("FJR Instagram");
         }
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -146,6 +178,7 @@ public class MainPage extends AppCompatActivity
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
+
             return true;
         }
         return true;

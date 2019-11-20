@@ -1,14 +1,17 @@
 package com.example.micha.newandroidapp;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
+
+import com.fjrapp.R;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,12 +39,12 @@ public class FragmentMap extends Fragment{
 
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * The {@link PagerAdapter} that will provide
      * fragments for each of the sections. We use a
      * {@link FragmentPagerAdapter} derivative, which will keep every
      * loaded fragment in memory. If this becomes too memory intensive, it
      * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * {@link FragmentStatePagerAdapter}.
      */
 
         //Toolbar toolbar = (Toolbar) getView().findViewById(R.id.toolbar);
@@ -82,10 +85,6 @@ public class FragmentMap extends Fragment{
             return true;
         }
 
-//try this? ok. It either didn't work or my code doesn't work
-        //what are you expecting this to do? because i beleve you've set it up wrong.
-        //So when a tab is selected, an image will appear. To test I want to see if a message will appear
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -109,11 +108,7 @@ public class FragmentMap extends Fragment{
          */
         public static FragmentMap.PlaceholderFragment newInstance(int sectionNumber) {
             FragmentMap.PlaceholderFragment fragment = new FragmentMap.PlaceholderFragment();
-            //it's what this does. Whats a Bundle?
-            // a magical way to send information. What kind of form is it
-            //not a form... strictly for android to send data to itself. Like any kind of data?
-            //strictly those types. Ok. I think this makes sense. Thanks so much.
-            // no problem/ ciao CYA
+
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -126,7 +121,6 @@ public class FragmentMap extends Fragment{
             View rootView = inflater.inflate(R.layout.fragment_map, container, false);
             ImageView imageview = (ImageView) rootView.findViewById(R.id.map_view);
 
-//changes back image
 
             int currentPage = getArguments().getInt(ARG_SECTION_NUMBER);
             switch (currentPage){
@@ -142,7 +136,6 @@ public class FragmentMap extends Fragment{
                 default:
                     imageview.setImageResource(R.drawable.floor_1_map_hd);
             }
-//changes back image
 
 
             return rootView;
